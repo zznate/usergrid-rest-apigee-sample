@@ -26,7 +26,7 @@ The following steps will guide you through setting up and installing Usergrid lo
 8. Start Apache Cassandra (either via the bin/cassandra script in the case of a tar file install or the service scripts from a packaged install)
 
 9. Go to the following URL to initialize and setup the Usergrid database (by default, the username and password is superuser:superpass):  
-[http://localhost:8080/system/setup/database](http://localhost:8080/system/database/setup)
+[http://localhost:8080/system/database/setup](http://localhost:8080/system/database/setup)
 
 After about a minute of setup time, Usergrid should be running on your machine. Your next stop should be the [documentation](http://apigee.com/docs/usergrid/content/usergrid-api-reference).
 
