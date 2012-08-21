@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender class="org.apache.log4j.ConsoleAppender" name="stdout">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param value="%d %p (%t) [%c] - %m%n" name="ConversionPattern"/>
+        </layout>
+    </appender>
+    <appender class="org.apache.log4j.FileAppender" name="tail">
+        <param value="/opt/tomcat7/logs/tail_catalina.log" name="File"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" name="ConversionPattern"/>
+        </layout>
+    </appender>
+    <appender name="loggly" class="org.productivity.java.syslog4j.impl.log4j.Syslog4jAppender">
+        <errorHandler class="org.apache.log4j.helpers.OnlyOnceErrorHandler"/>
+        <param name="Protocol" value="tcp"/>
+        <param name="Facility" value="user"/>
+        <param name="Host" value="logs.loggly.com"/>
+        <param name="Port" value="10046"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%c (%t) %m%n"/>
+        </layout>
+    </appender>
+    <appender name="async_loggly" class="org.apache.log4j.AsyncAppender">
+        <errorHandler class="org.apache.log4j.helpers.OnlyOnceErrorHandler"/>
+        <param name="BufferSize" value="100000"/>
+        <param name="Blocking" value="false" />
+        <appender-ref ref="loggly"/>
+    </appender>
+    <logger name="org.apache">
+        <level value="error"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </logger>
+    <logger name="me.prettyprint.cassandra.hector.TimingLogger">
+        <level value="warn"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </logger>
+    <logger name="me.prettyprint.hector.api.beans.AbstractComposite">
+        <level value="error"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </logger>
+    <logger name="org.usergrid.persistence.cassandra.BATCH">
+        <level value="warn"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </logger>
+    <logger name="org.usergrid.persistence.cassandra.ConnectionRefImpl">
+        <level value="warn"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </logger>
+    <logger name="org.usergrid.persistence.cassandra.DaoUtils">
+        <level value="warn"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </logger>
+    <logger name="org.usergrid.persistence.cassandra.DB">
+        <level value="warn"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </logger>
+    <logger name="org.usergrid.persistence.cassandra.EntityManagerFactoryImpl">
+        <level value="warn"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </logger>
+    <logger name="org.usergrid.persistence.cassandra.EntityManagerImpl">
+        <level value="warn"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </logger>
+    <logger name="org.usergrid.rest.security.AllowAjaxFilter">
+        <level value="warn"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </logger>
+    <root>
+        <level value="info"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="tail"/>
+        <appender-ref ref="async_loggly"/>
+    </root>
+</log4j:configuration>
