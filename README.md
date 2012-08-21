@@ -38,3 +38,5 @@ To customize the Usergrid installation to your environment, see the properties f
 Please send any issues or comments to the [Usergrid mailing list](https://groups.google.com/forum/?fromgroups#!forum/usergrid). 
 
 Feel free to add to these instructions at any time by forking and sending a pull request. 
+
+Note: the current release of Apache Tomcat - 7.0.29 - is [totally hosed](http://www.mail-archive.com/users@tomcat.apache.org/msg100552.html) (seriously, folks, if it's an obvious bug in the spec just don't implement it). Do not use it. 7.0.26 was used to verify this setup. 
