@@ -32,7 +32,7 @@ After about a minute of setup time, Usergrid should be running on your machine. 
 
 ## Exploring the Properties (Customization)
 To customize the Usergrid installation to your environment, see the properties file located here:
-[http://github.com/apigee/usergrid-rest-apigee-sample/blob/master/src/main/resources/usergrid.properties](http://github.com/apigee/usergrid-rest-apigee-sample/blob/master/src/main/resources/usergrid.properties)
+[http://github.com/zznate/usergrid-rest-apigee-sample/blob/master/src/main/resources/usergrid.properties](http://github.com/zznate/usergrid-rest-apigee-sample/blob/master/src/main/resources/usergrid.properties)
 
 ## Still Have Questions?
 Please send any issues or comments to the [Usergrid mailing list](https://groups.google.com/forum/?fromgroups#!forum/usergrid). 
